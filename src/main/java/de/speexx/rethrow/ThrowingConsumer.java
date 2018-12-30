@@ -12,11 +12,11 @@ import java.util.function.Consumer;
  */
 @FunctionalInterface
 public interface ThrowingConsumer<T, E extends Exception> {
-    
+
     void accept(T t) throws E;
-    
+
     /**
-     * Creates a consumer which transforms all unchecked exceptions to unchecked expceptions.
+     * Creates a consumer which transforms all checked exceptions to unchecked expceptions.
      * In standard cases a {@link RuntimeException} is thrown if and only if
      * the thrown exception is not of type <tt>RuntimeExceptiony</tt>.
      * <p>If and only if the thrown exception is of type {@link IOException} the
