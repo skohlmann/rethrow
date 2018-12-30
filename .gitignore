@@ -1,0 +1,9 @@
+**/.Rproj.user
+**/derby.log
+**/target
+nbactions.xml
+nb-configuration.xml
+**/venv
+**/.idea
+
+.Rproj.user
