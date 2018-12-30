@@ -34,3 +34,7 @@ A simple example for transforming checked exceptions into unchecked exceptions f
     }
 
 That's all, folks. 
+
+Savings:
+- ~25% code & statements
+- 6 lines of code & statements
