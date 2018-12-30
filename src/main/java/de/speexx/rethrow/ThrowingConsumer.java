@@ -11,7 +11,7 @@ import java.util.function.Consumer;
  * @author Sascha Kohlmann
  */
 @FunctionalInterface
-interface ThrowingConsumer<T, E extends Exception> {
+public interface ThrowingConsumer<T, E extends Exception> {
     
     void accept(T t) throws E;
     
