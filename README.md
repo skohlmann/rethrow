@@ -6,6 +6,9 @@ A simple example for transforming checked exceptions into unchecked exceptions f
 
 ### Before
     
+    import java.io.IOException;
+    import java.io.UncheckedIOException;
+    
     public class PathContainer implements Iterable<Path> {
     
         public void copyAllTo(final Path target) {
