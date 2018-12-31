@@ -3,6 +3,7 @@ package de.speexx.rethrow;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.function.Function;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Exception throwing replacement of {@link Function}.
@@ -27,6 +28,7 @@ public interface ThrowingFunction<T, R, E extends Exception> {
      * @return a function
      */
     static <T, R, E extends Exception> Function<T, R> rethrowUnchecked(final ThrowingFunction<T, R, E> f) {
+        requireNonNull(f);
         return t -> {
             try {
                 return f.apply(t);

@@ -3,6 +3,7 @@ package de.speexx.rethrow;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.function.Consumer;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Exception throwing replacement of {@link Consumer}.
@@ -27,6 +28,7 @@ public interface ThrowingConsumer<T, E extends Exception> {
      * @return a consumer
      */
     static <T, E extends Exception> Consumer<T> rethrowUnchecked(final ThrowingConsumer<T, E> c) {
+        requireNonNull(c);
         return t -> {
             try {
                 c.accept(t);

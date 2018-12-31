@@ -57,4 +57,14 @@
             </plugin>
         </plugins>
     </build>
+    <developers>
+        <developer>
+            <id>isk</id>
+            <name>Sascha Kohlmann</name>
+        </developer>
+        <developer>
+            <id>donut87</id>
+            <name>Christian Dohnert</name>
+        </developer>
+    </developers>
 </project>
