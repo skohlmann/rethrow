@@ -3,8 +3,10 @@ package de.speexx.rethrow;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import org.junit.jupiter.api.function.Executable;
 import java.io.UncheckedIOException;
 import java.util.function.Consumer;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ThrowingConsumerTest {
 
@@ -41,6 +43,12 @@ public class ThrowingConsumerTest {
             assertSame(UncheckedIOException.class, e.getClass());
             assertSame(toThrow, e.getCause());
         }
+    }
+    
+    @Test
+    public void failFast() {
+        final Executable failFast = () -> ThrowingConsumer.rethrowUnchecked(null);
+        assertThrows(NullPointerException.class, failFast);
     }
 
     Consumer<String> createConsumer(final Exception toThrow) {

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.Test;
 
 public class ThrowingFunctionTest {
@@ -42,6 +44,12 @@ public class ThrowingFunctionTest {
             assertSame(UncheckedIOException.class, e.getClass());
             assertSame(toThrow, e.getCause());
         }
+    }
+
+    @Test
+    public void failFast() {
+        final Executable failFast = () -> ThrowingConsumer.rethrowUnchecked(null);
+        assertThrows(NullPointerException.class, failFast);
     }
 
     Function<String, String> createFunction(final Exception toThrow) {
